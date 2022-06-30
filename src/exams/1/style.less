@@ -1,0 +1,67 @@
+// 多行省略 ellipsis
+.fn_line_clamp(@line: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+html {
+  font-size: 60px;
+}
+
+body {
+  font-size: 16px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  height: 136px;
+  width: 430px;
+  margin: 0 auto 0.1rem;
+  background: #fff0f1;
+  border-radius: 12px;
+
+  .left {
+    flex: 1;
+    padding-left: 30px;
+
+    .title {
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+      .fn_line_clamp(1);
+    }
+
+    .subTitle {
+      display: block;
+      font-size: 22px;
+      color: #666;
+      .fn_line_clamp(2);
+    }
+  }
+
+  .right {
+    padding: 0 24px;
+
+    .action {
+      display: block;
+      width: 108px;
+      height: 45px;
+      color: #fff;
+      font-size: 20px;
+      line-height: 45px;
+      text-align: center;
+      text-decoration: none;
+      background: #f00;
+      border-radius: 8px;
+
+      &.finished {
+        background: #ccc;
+      }
+    }
+  }
+}
